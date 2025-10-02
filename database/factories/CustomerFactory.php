@@ -16,6 +16,7 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
+        // Hello world
         $firstName = $this->faker->firstName;
         $lastName = $this->faker->lastname;
         $phoneNumber = $this->faker->phoneNumber;
