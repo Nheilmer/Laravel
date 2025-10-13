@@ -26,8 +26,8 @@ class CustomerFactory extends Factory
 
         return [
             'username' => substr($username, 0, 50),
-            'email' => substr($email, 0, 50),
-            'password_hash' => substr($password_hash, 0, 8),
+            'email' => substr($email, 0, 100),
+            'password_hash' => substr($password_hash, 0, 255),
             'first_name' => substr($firstName, 0, 50),
             'last_name' => substr($lastName, 0, 50),
             'date_of_birth' => fake()->date(),
