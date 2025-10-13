@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name', 30);
-            $table->string('last_name', 30);
-            $table->string('contact', 15);
-            $table->text('address');
+            $table->string('username', 50)->unique();
+            $table->string('email', 50)->unique();
+            $table->string('password_hash', 8);
+            $table->string('first_name', 50);
+            $table->string('last_name', 50);
+            $table->date('date_of_birth')->nullable();
+            $table->text('address')->nullable();
+            $table->text('phone_number', 20)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

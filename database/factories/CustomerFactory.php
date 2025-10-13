@@ -17,15 +17,22 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         // Hello world
+        $username = $this->faker->userName;
+        $email = $this->faker->email;
+        $password_hash = $this->faker->password;
         $firstName = $this->faker->firstName;
         $lastName = $this->faker->lastname;
-        $phoneNumber = $this->faker->phoneNumber;
+        $phone_number = $this->faker->phoneNumber;
 
         return [
-            'first_name' => substr($firstName, 0, 30),
-            'last_name' => substr($lastName, 0, 30),
-            'contact' => substr($phoneNumber, 0, 15),
-            'address' => fake()->address()
+            'username' => substr($username, 0, 50),
+            'email' => substr($email, 0, 50),
+            'password_hash' => substr($password_hash, 0, 8),
+            'first_name' => substr($firstName, 0, 50),
+            'last_name' => substr($lastName, 0, 50),
+            'date_of_birth' => fake()->date(),
+            'address' => fake()->address(),
+            'phone_number' => substr($phone_number, 0, 20)
         ];
     }
 }
