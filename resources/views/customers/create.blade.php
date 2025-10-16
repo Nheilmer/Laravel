@@ -4,7 +4,7 @@
         <a href="/customers">Back to list</a>
         <hr>
     </div>
-    <form action={{ route('customer.store') }} method="POST">
+    <form action="{{ route('customers.store') }}" method="POST">
         @csrf
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>

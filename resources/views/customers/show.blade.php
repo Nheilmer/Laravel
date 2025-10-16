@@ -4,6 +4,11 @@
         <hr>
         <a href={{ route('customers.edit', $customer->id) }}>Edit Customer</a>
         <hr>
+        <form action={{ route('customers.destroy', $customer->id) }} method="POST" onsubmit="return confirm('Are you sure you want to delete this customer?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete Customer</button>
+        </form>
     </div>
     <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
     <h1>Customer Details</h1>

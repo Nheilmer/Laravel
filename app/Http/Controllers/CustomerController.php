@@ -71,8 +71,8 @@ class CustomerController extends Controller
     public function update(Request $request, string $id)
     {
         $validatedData = $request->validate([
-            'username' => 'required|max:50|unique:customers,username' . $id,
-            'email' => 'required|email|unique:customers,email' . $id,
+            'username' => 'required|max:50|unique:customers,username,' . $id,
+            'email' => 'required|email|unique:customers,email,' . $id,
             'password_hash' => 'required|min:8',
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
@@ -82,7 +82,7 @@ class CustomerController extends Controller
         ]);
 
         $customer = Customer::find($id);
-        $customer->updatefind($validatedData);
+        $customer->update($validatedData);
 
         return redirect()->route('customers.index');
     }
@@ -90,8 +90,10 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from the storage.
      */
-    public function destroy(Request $request)
+    public function destroy(string $id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect()->route('customers.index');
     }
 }
